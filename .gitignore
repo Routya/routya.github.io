@@ -1,5 +1,6 @@
 # Build output
 .next/
+# docs/ - committed for GitHub Pages
 
 # Dependencies
 node_modules/
