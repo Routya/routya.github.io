@@ -37,7 +37,7 @@ export function Hero() {
           {/* Badges */}
           <div className="flex flex-wrap items-center justify-center gap-3">
             <div className="px-4 py-2 rounded-full bg-card border border-border text-sm">
-              <span className="text-muted-foreground">v1.0.5</span>
+              <span className="text-muted-foreground">v2.0.0</span>
             </div>
             <div className="px-4 py-2 rounded-full bg-card border border-border text-sm">
               <span className="text-muted-foreground">.NET 8, 9, 10</span>
