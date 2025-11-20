@@ -55,7 +55,7 @@ export function Documentation() {
                 <div>
                   <h4 className="text-lg font-semibold mb-3 text-primary">Installation</h4>
                   <div className="bg-secondary/50 rounded-lg p-4 font-mono text-sm">
-                    <code className="text-primary">dotnet add package Routya.Core --version 1.0.5</code>
+                    <code className="text-primary">dotnet add package Routya.Core --version 2.0.0</code>
                   </div>
                 </div>
 
@@ -359,7 +359,7 @@ services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         CancellationToken cancellationToken)
     {
         Console.WriteLine($"[Logging] → {typeof(TRequest).Name}");
-        var result = await next();
+        var result = await next(cancellationToken);
         Console.WriteLine($"[Logging] ✓ {typeof(TRequest).Name}");
         return result;
     }
@@ -384,7 +384,7 @@ services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         if (!validationResult.IsValid)
             throw new ValidationException(validationResult.Errors);
         
-        return await next();
+        return await next(cancellationToken);
     }
 }`}</code></pre>
                   </div>

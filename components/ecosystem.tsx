@@ -6,7 +6,7 @@ import Link from "next/link"
 const packages = [
   {
     name: "Routya.ResultKit",
-    version: "2.0.0",
+    version: "2.1.0",
     description: "Lightweight result wrapper, validation and transformation toolkit for clean Result<T> handling.",
     repo: "https://github.com/HBartosch/Routya.ResultKit",
     nuget: "https://www.nuget.org/packages/Routya.ResultKit",
@@ -22,7 +22,7 @@ const packages = [
   },
   {
     name: "Routya.ResultKit.AspNetCore",
-    version: "2.0.0",
+    version: "2.1.0",
     description:
       "ASP.NET Core integration providing seamless ProblemDetails conversion and automatic exception handling.",
     repo: "https://github.com/HBartosch/Routya.ResultKit/blob/main/Routya.ResultKit.AspNetCore/README.md",
