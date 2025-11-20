@@ -275,7 +275,7 @@ await _dispatcher.PublishParallelAsync(
               <h3 className="text-2xl font-bold mb-4">Handler Lifetimes</h3>
               <div className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed">
-                  Configure handler lifetimes for optimal performance based on your use case. New in v2.0.0!
+                  Configure handler lifetimes for optimal performance based on your use case. New in v1.0.5!
                 </p>
 
                 <div>
