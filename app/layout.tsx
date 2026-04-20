@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     'Open-source .NET libraries and frameworks focused on performance and developer ergonomics. Routya, ResultKit, and Effinitive.',
   generator: 'v0.app',
   icons: {
-    icon: '/icon.svg',
-    apple: '/apple-icon.png',
+    icon: '/routya-logo.png',
+    apple: '/routya-logo.png',
   },
 }
 
