@@ -55,7 +55,17 @@ export function Documentation() {
                 <div>
                   <h4 className="text-lg font-semibold mb-3 text-primary">Installation</h4>
                   <div className="bg-secondary/50 rounded-lg p-4 font-mono text-sm">
-                    <code className="text-primary">dotnet add package Routya.Core --version 2.0.0</code>
+                    <code className="text-primary">dotnet add package Routya.Core</code>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-3 mb-2 flex items-start gap-2">
+                    <Zap className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>
+                      For peak performance, install the source generator — it emits compile-time handler
+                      registrations and eliminates reflection overhead at runtime.
+                    </span>
+                  </p>
+                  <div className="bg-secondary/50 rounded-lg p-4 font-mono text-sm">
+                    <code className="text-primary">dotnet add package Routya.SourceGenerators</code>
                   </div>
                 </div>
 

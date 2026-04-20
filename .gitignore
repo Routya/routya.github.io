@@ -1,6 +1,10 @@
 # Build output
 .next/
+docs/dev/
 # docs/ - committed for GitHub Pages
+
+# IDE
+*.code-workspace
 
 # Dependencies
 node_modules/
