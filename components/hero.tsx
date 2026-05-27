@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Download, Github, Zap } from "lucide-react"
+import { ArrowRight, Download, Zap } from "lucide-react"
+import { GitHubIcon } from "@/components/github-icon"
 import Link from "next/link"
 import { NugetStatsBadge } from "@/components/nuget-stats"
 import type { NugetStats } from "@/lib/nuget"
@@ -49,7 +50,7 @@ export function Hero({ stats }: { stats?: NugetStats | null }) {
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Button size="lg" asChild className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-base h-12 px-8">
-              <Link href="https://www.nuget.org/packages/Routya.Core" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.nuget.org/packages/Routya" target="_blank" rel="noopener noreferrer">
                 <Download className="w-5 h-5 mr-2" />
                 Install Package
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -57,26 +58,19 @@ export function Hero({ stats }: { stats?: NugetStats | null }) {
             </Button>
             <Button size="lg" variant="outline" asChild className="text-base h-12 px-8">
               <Link href="https://github.com/HBartosch/Routya" target="_blank" rel="noopener noreferrer">
-                <Github className="w-5 h-5 mr-2" />
+                <GitHubIcon className="w-5 h-5 mr-2" />
                 View on GitHub
               </Link>
             </Button>
           </div>
 
-          <div className="pt-8 space-y-3">
+          <div className="pt-8 flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-card border border-border">
-              <code className="text-sm font-mono text-primary">dotnet add package Routya.Core</code>
+              <code className="text-sm font-mono text-primary">dotnet add package Routya</code>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="inline-flex items-center gap-2 text-xs font-medium text-primary">
-                <Zap className="w-3.5 h-3.5" />
-                For peak performance, also install the source generator
-              </div>
-              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-card/60 border border-border/60">
-                <code className="text-xs md:text-sm font-mono text-muted-foreground">
-                  dotnet add package Routya.SourceGenerators
-                </code>
-              </div>
+            <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+              <Zap className="w-3.5 h-3.5 text-primary" />
+              Includes Routya.Core + Routya.SourceGenerators
             </div>
           </div>
         </div>

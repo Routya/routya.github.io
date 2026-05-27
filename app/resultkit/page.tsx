@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Download, Github, CheckCircle2, Package, Code2, Shield, Layers } from "lucide-react"
+import { ArrowRight, Download, CheckCircle2, Package, Code2, Shield, Layers } from "lucide-react"
+import { GitHubIcon } from "@/components/github-icon"
 import { fetchNugetStats } from "@/lib/nuget"
 import { NugetStatsBadge } from "@/components/nuget-stats"
 
@@ -100,7 +101,7 @@ export default async function ResultKitPage() {
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href={corePackage.repo} target="_blank" rel="noopener noreferrer">
-                  <Github className="w-5 h-5 mr-2" />
+                  <GitHubIcon className="w-5 h-5 mr-2" />
                   View on GitHub
                 </Link>
               </Button>

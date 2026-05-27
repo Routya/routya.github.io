@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import {
   Gauge,
   ExternalLink,
-  Github,
   Package,
   CheckCircle2,
   Clock,
@@ -12,6 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react"
 import Link from "next/link"
+import { GitHubIcon } from "@/components/github-icon"
 
 const stats = [
   { label: "Response time", value: "<50μs", sublabel: "per request, p50" },
@@ -136,7 +136,7 @@ export function Effinitive() {
             <div className="flex gap-3">
               <Button variant="outline" asChild>
                 <Link href="https://github.com/HBartosch/Effinitive" target="_blank" rel="noopener noreferrer">
-                  <Github className="w-4 h-4 mr-2" />
+                  <GitHubIcon className="w-4 h-4 mr-2" />
                   GitHub
                 </Link>
               </Button>

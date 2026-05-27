@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Github } from "lucide-react"
+import { GitHubIcon } from "@/components/github-icon"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
@@ -46,7 +46,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="sm" asChild>
             <Link href="https://github.com/HBartosch" target="_blank" rel="noopener noreferrer">
-              <Github className="w-4 h-4 mr-2" />
+              <GitHubIcon className="w-4 h-4 mr-2" />
               GitHub
             </Link>
           </Button>

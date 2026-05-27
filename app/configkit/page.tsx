@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import {
   ArrowRight,
   Download,
-  Github,
   CheckCircle2,
   Package,
   Code2,
@@ -15,6 +14,7 @@ import {
 } from "lucide-react"
 import { fetchNugetStats } from "@/lib/nuget"
 import { NugetStatsBadge } from "@/components/nuget-stats"
+import { GitHubIcon } from "@/components/github-icon"
 
 export const metadata: Metadata = {
   title: "ConfigKit",
@@ -115,7 +115,7 @@ export default async function ConfigKitPage() {
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href={generatorPackage.repo} target="_blank" rel="noopener noreferrer">
-                  <Github className="w-5 h-5 mr-2" />
+                  <GitHubIcon className="w-5 h-5 mr-2" />
                   View on GitHub
                 </Link>
               </Button>

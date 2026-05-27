@@ -1,9 +1,10 @@
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Github, ExternalLink, Zap, Server, CheckCircle2, Award, Gauge } from "lucide-react"
+import { ArrowRight, ExternalLink, Zap, Server, CheckCircle2, Award, Gauge } from "lucide-react"
+import { GitHubIcon } from "@/components/github-icon"
 import { fetchNugetStats } from "@/lib/nuget"
-import { NugetStatsBadge } from "@/components/nuget-stats"
+import { NugetStatsBadge, TotalDownloadsBadge } from "@/components/nuget-stats"
 
 const productMeta = [
   {
@@ -60,9 +61,15 @@ const milestones = [
   },
 ]
 
+const companionPackageIds = ["Routya", "Routya.SourceGenerators", "Routya.ResultKit.AspNetCore", "Routya.ConfigKit"]
+
 export default async function Home() {
-  const stats = await Promise.all(productMeta.map((p) => fetchNugetStats(p.packageId)))
+  const [stats, companionStats] = await Promise.all([
+    Promise.all(productMeta.map((p) => fetchNugetStats(p.packageId))),
+    Promise.all(companionPackageIds.map((id) => fetchNugetStats(id))),
+  ])
   const products = productMeta.map((p, i) => ({ ...p, stats: stats[i] }))
+  const totalDownloads = [...stats, ...companionStats].reduce((sum, s) => sum + (s?.downloads ?? 0), 0)
 
   return (
     <>
@@ -94,6 +101,12 @@ export default async function Home() {
               handling, and Effinitive is a ground-up HTTP server framework built to outperform existing .NET web
               frameworks. Everything I ship includes reproducible benchmarks and sits under the MIT license.
             </p>
+            <div className="flex flex-wrap gap-3 pt-2 pb-1">
+              <TotalDownloadsBadge
+                packageIds={[...productMeta.map((p) => p.packageId), ...companionPackageIds]}
+                initialTotal={totalDownloads}
+              />
+            </div>
             <div className="flex flex-wrap gap-3 pt-2">
               <Button asChild className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
                 <Link href="#projects">
@@ -103,7 +116,7 @@ export default async function Home() {
               </Button>
               <Button variant="outline" asChild>
                 <Link href="https://github.com/HBartosch" target="_blank" rel="noopener noreferrer">
-                  <Github className="w-4 h-4 mr-2" />
+                  <GitHubIcon className="w-4 h-4 mr-2" />
                   GitHub
                 </Link>
               </Button>
@@ -227,7 +240,7 @@ export default async function Home() {
           </p>
           <Button size="lg" asChild className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
             <Link href="https://github.com/HBartosch" target="_blank" rel="noopener noreferrer">
-              <Github className="w-5 h-5 mr-2" />
+              <GitHubIcon className="w-5 h-5 mr-2" />
               Follow on GitHub
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>

@@ -4,6 +4,37 @@ import { useEffect, useState } from "react"
 import { Download } from "lucide-react"
 import { formatDownloads, type NugetStats } from "@/lib/nuget"
 
+type TotalProps = {
+  packageIds: string[]
+  initialTotal: number
+}
+
+export function TotalDownloadsBadge({ packageIds, initialTotal }: TotalProps) {
+  const [total, setTotal] = useState(initialTotal)
+
+  useEffect(() => {
+    let cancelled = false
+    Promise.all(
+      packageIds.map((id) =>
+        fetch(`https://azuresearch-usnc.nuget.org/query?q=packageid:${id}&prerelease=true&semVerLevel=2.0.0`)
+          .then((r) => r.json())
+          .then((d) => (d.data?.[0]?.totalDownloads as number) ?? 0)
+          .catch(() => 0)
+      )
+    ).then((counts) => {
+      if (!cancelled) setTotal(counts.reduce((a, b) => a + b, 0))
+    })
+    return () => { cancelled = true }
+  }, [packageIds])
+
+  return (
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+      <Download className="w-3.5 h-3.5 text-primary" />
+      <span className="text-sm font-medium text-primary">{formatDownloads(total)} total downloads</span>
+    </div>
+  )
+}
+
 type Variant = "pill" | "inline" | "downloads-only"
 
 type Props = {

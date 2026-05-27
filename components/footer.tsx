@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Github, ExternalLink } from "lucide-react"
+import { ExternalLink } from "lucide-react"
+import { GitHubIcon } from "@/components/github-icon"
 
 const projects = [
   { href: "/routya", label: "Routya" },
@@ -55,7 +56,7 @@ export function Footer() {
                     rel="noopener noreferrer"
                     className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
                   >
-                    {e.label === "GitHub Profile" && <Github className="w-4 h-4" />}
+                    {e.label === "GitHub Profile" && <GitHubIcon className="w-4 h-4" />}
                     {e.label}
                     <ExternalLink className="w-3 h-3" />
                   </Link>
